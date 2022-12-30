@@ -12,3 +12,4 @@ def detail(request, pk):
     friend = Friend.objects.get(profile_id= pk)
     context = {}
     return render(request, 'mychatapp/detail.html', context)
+
