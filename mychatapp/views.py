@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Profile, Friend
+from .forms import ChatMessage
 # Create your views here.
 def index(request):
     user = request.user.profile
@@ -10,6 +11,8 @@ def index(request):
 
 def detail(request, pk):
     friend = Friend.objects.get(profile_id= pk)
-    context = {}
+    form = ChatMessage()
+
+    context = {'friend': friend, 'form': form}
     return render(request, 'mychatapp/detail.html', context)
 
